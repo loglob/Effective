@@ -72,7 +72,7 @@ public class WaterfallCloudGenerators {
                 if (world.getTime() % 11 == 0) {
                     world.playSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(),
                             Effective.AMBIENCE_WATERFALL, SoundCategory.AMBIENT,
-                            300f,
+                            Config.waterfallVolume * 300f,
                             1f + world.random.nextFloat() / 10f, false);
                 }
 
