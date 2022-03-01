@@ -1,6 +1,7 @@
 package ladysnake.effective.mixin;
 
 import ladysnake.effective.client.world.WaterfallCloudGenerators;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.fluid.FluidState;
@@ -14,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockRenderManager.class)
 public class BlockRenderManagerMixin {
     @Inject(method = "renderFluid", at = @At("TAIL"))
-    public void renderFluid(BlockPos pos, BlockRenderView world, VertexConsumer vertexConsumer, FluidState state, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
+    public void renderFluid(BlockPos pos, BlockRenderView world, VertexConsumer vertexConsumer, BlockState blockState, FluidState fluidState, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
         WaterfallCloudGenerators.tryAddGenerator(world, pos);
     }
 }
